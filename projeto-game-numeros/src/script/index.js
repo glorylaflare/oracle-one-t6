@@ -1,15 +1,35 @@
-alert("Boas vindas ao nosso site!");
+// 1. VERIFICA SE O DIA DA SEMANA É UM FIM DE SEMANA OU NÃO...
+let diaDaSemana = prompt("Qual é o dia da semana?");
 
-let nome = prompt("Insira o seu nome");
-let idade = prompt("Insira a sua idade");
-let numeroDeVendas = 50;
-let saldoDisponivel = 1000;
-
-const mensagemDeErro = "Erro! Preencha todos os campos.";
-alert(mensagemDeErro);
-
-if(idade >= 18) {
-    alert("Parabéns " + nome + ", você já pode tirar a habilitação!");
+if(diaDaSemana.toLowerCase() == "sábado" || diaDaSemana.toLowerCase() == "domingo") {
+    alert("Bom fim de semana!");
 } else {
-    alert(nome + ", você ainda não pode tirar a habilitação!");
+    alert("Boa semana!");
 };
+
+// 2. VERIFICA SE UM NÚMERO É POSITIVO OU NEGATIVO...
+let verificaNumero = prompt("Digite um número positivo ou negativo");
+
+if(verificaNumero >= 0) {
+    alert("Número positivo!");
+} else {
+    alert("Número negativo!");
+};
+
+// 3. VERIFICA SE A PONTUAÇÃO É MAIOR OU IGUAL A 100...
+let pontuacao = prompt("Qual a pontuação final?");
+
+if(pontuacao >= 100) {
+    alert("Parabéns, você venceu!");
+} else {
+    alert("Tente novamente para ganhar");
+};
+
+// 4. MOSTRA O SALDO DA CONTA ATUAL...
+let saldoDaConta = 3450;
+alert(`O seu saldo atual é de R$ ${saldoDaConta.toFixed(2)}`);
+
+// 5. MOSRTA O NOME DO USUÁRIO NO ALERT...
+let nomeDoUsuario = prompt("Insira o seu nome");
+
+alert(`Boas vindas ${nomeDoUsuario}!`);
