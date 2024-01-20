@@ -1,7 +1,7 @@
 alert("Bem vindo ao meu primeiro projeto do programa ONE");
 
 const numeroMaxConvidados = 1500;
-const numeroConvidados = parseInt(Math.random() * 1500 + 1);
+const numeroConvidados = parseInt(Math.random() * numeroMaxConvidados + 1);
 // console.log(numeroConvidados);
 
 let tentativas = 1, convidados;
