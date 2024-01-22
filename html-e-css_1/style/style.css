@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@200;300;400&display=swap');
+
+:root {
+    --cor1: #000000;
+    --cor2: #f6f6f6;
+    --cor3: #22D4FD;
+    --cor4: #0F0F0F;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: var(--cor1);
+    color: var(--cor2);
+    font-family: 'Krona One', sans-serif;
+}
+
+header {
+    margin: 2rem 0;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 2rem;
+    font-size: 1.5rem;
+}
+
+ul > li {
+    cursor: pointer;
+    border-bottom: .5rem solid transparent;
+}
+
+ul > li:hover {
+    color: var(--cor3);
+    border-bottom: .3rem solid var(--cor3);
+}
+
+main {
+    display: flex;
+    width: 55%;
+    margin: 4rem;
+    gap: 2rem;
+}
+
+h1 {
+    margin-bottom: 3rem;
+    font-weight: 200;
+    font-size: 2.2rem;
+}
+
+h1 > strong {
+    color: var(--cor3);
+    font-weight: 200;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 200;
+    margin-bottom: 3rem;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+a {
+    background: var(--cor3);
+    width: 45%;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: var(--cor1);
+}
+
+a:hover {
+    background: var(--cor2);
+}
+
+img {
+    height: 450px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background: var(--cor4);
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+}
