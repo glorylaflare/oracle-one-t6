@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: #F3E9DF;
+    color: #41383A;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 3rem 0 5rem 0;
+}
+
+.titulo > p {
+    margin-top: .5rem;
+    font-size: .8rem;
+}
+
+.noticias {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: auto;
+    gap: 1.5rem;
+}
+
+.tags {
+    display: inline-block;
+    background: #41383A;
+    color: #FFFFFF;
+    padding: .3rem .5rem; 
+    font-size: .6rem;
+    border-radius: 1rem;
+    margin-bottom: .6rem;
+}
+
+.destaque { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #FFFFFF;
+    padding: 1.3rem;
+    border: .2rem solid #41383A;
+    border-radius: .5rem;
+    height: 100%;
+    width: 500px;
+}
+
+.destaque > img {
+    width: 450px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+}
+
+.destaque > .infos {
+    padding: 1rem;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+ul > li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+.infos {
+    margin-left: 1rem;
+    height: 100%;
+    width: 500px;
+}
+
+.infos > h2 {
+    font-size: 1.2rem;
+}
+
+li > img {
+    min-width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: .5rem;
+}
+
+.autor {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.autor > img {
+    border-radius: 50%;
+    width: 8%;
+    border: .1rem solid #F3E9DF;
+    box-shadow: 0 0 0 .2rem #41383A;
+}
+
+.autor-infos {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.autor-infos > p {
+    font-weight: 600;
+}
+
+.autor-infos > span {
+    font-size: .8rem;
+}
