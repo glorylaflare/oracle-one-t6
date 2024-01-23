@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@200;300;400&display=swap');
+
+/* :root {
+    --cor1: #000000;
+    --cor2: #f6f6f6;
+    --cor3: #22D4FD;
+    --cor4: #272727;
+
+    --fonte: 'Krona One', sans-serif;
+} */
+
+:root {
+    --cor1: #2D3250;
+    --cor2: #F6B17A;
+    --cor3: #7077A1;
+    --cor4: #424769;
+
+    --fonte: 'Krona One', sans-serif;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: var(--cor1);
+    color: var(--cor2);
+}
+
+/* Cabeçalho */
+.cabecalho {
+    font-weight: 600;
+    margin: 5vh 50vh;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 5rem;
+    font-size: 1.5rem;
+}
+
+nav > a {
+    cursor: pointer;
+    position: relative;
+    color: var(--cor3);
+    text-decoration: none;
+}
+
+nav > a:hover {
+    color: var(--cor2);
+}
+
+nav > a:hover::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 2rem;
+    left: 0;
+    animation: sublinhado .4s ease-in-out;
+}
+
+/* Container */
+main {
+    display: flex;
+    justify-content: space-between;
+    margin: 8vh 50vh 20vh 50vh;
+    gap: 5rem;
+}
+
+h1 {
+    font-family: var(--fonte);
+    margin-bottom: 3rem;
+    font-weight: 200;
+    font-size: 2.2rem;
+}
+
+h1 > strong {
+    font-family: var(--fonte);
+    color: var(--cor3);
+    font-weight: 200;
+}
+
+p {
+    font-size: 1.3rem;
+    font-weight: 200;
+    margin-bottom: 3rem;
+}
+
+.apresentacao__links {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 5rem;
+}
+
+.apresentacao__links > h2 {
+    font-family: var(--fonte);
+    font-weight: 300;
+    font-size: 1.4rem;
+}
+
+.apresentacao__links__link {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: var(--cor2);
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: .2rem solid var(--cor3);
+}
+
+.apresentacao__links__link > i {
+    font-size: 1.7rem;
+    margin-right: .6rem;
+    color: var(--cor3);
+}
+
+.apresentacao__links__link:hover {
+    background: var(--cor4);
+}
+
+img {
+    max-height: 500px;
+}
+
+/* Rodapé */
+footer {
+    background: var(--cor3);
+    width: 100%;
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--cor1);
+    font-weight: 600;
+}
+
+/* Keyframes */
+@keyframes sublinhado {
+    from {
+        width: 0%;
+        border-bottom: .2rem solid var(--cor2);
+    }
+
+    to {
+        width: 100%;
+        border-bottom: .2rem solid var(--cor2);
+    }
+}
+
+/* professional.html */
+.apresentacao__conteudo__curriculo {
+    font-size: 2.5rem;
+}
+
+.apresentacao__conteudo__titulo {
+    font-size: 2rem;
+}
+
+.apresentacao__conteudo__div {
+    margin: 2rem 0;
+}
+
+.apresentacao__conteudo__experiencias {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+.apresentacao__conteudo__cursos > li {
+    margin: 0 -2.2rem;
+    list-style: none;
+    font-size: 1.2rem;
+}
+
+li > i {
+    margin-right: .5rem;
+}
+
+li > a {
+    color: var(--cor3);
+    text-decoration: none;
+}
+
+/* contact.html */
+.apresentacao__conteudo__contato {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.apresentacao__conteudo__contato input,
+textarea {
+    width: 120%;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    border: .2rem solid var(--cor3);
+    background-color: transparent;
+    color: var(--cor3);
+    resize: none;
+}
+
+textarea {
+    height: 25vh;
+}
+
+.apresentacao__conteudo__contato button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.3rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    border: .2rem solid var(--cor3);
+    background-color: transparent;
+    color: var(--cor2);
+    cursor: pointer;
+}
+
+.apresentacao__conteudo__contato i {
+    color: var(--cor3);
+}
+
+.apresentacao__conteudo__contato button:hover {
+    background: var(--cor4);
+}
