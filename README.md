@@ -14,6 +14,20 @@ Estou bastante motivado a embarcar nessa jornada, e espero que você curta o con
 
 De momento, vou deixar aqui o meu [perfil de aluno da Alura](https://cursos.alura.com.br/user/marcelogjunior), caso queira acompanhar o meu desenvolvimento.
 
+## 🧩 Projetos desenvolvidos
+
+1. [Desafio do número secreto](./js-curso_2/) (Desafio do curso de lógica de programação) <br><b>Obs.: O desafio foi feito em [Java](./adivinhe-numero-java/) e em JavaScript.</b>
+2. [Blog da Alura](./html-e-css_2/alura-blog/) - (Desafio do curso 2 de HTML e CSS)
+3. [Projeto final do Portfólio](./html-e-css_4/) - (Desafio do curso de HTML e CSS)
+
+Algumas imagens dos projetos:
+<br><br>
+<img src="./js-curso_2/img/screenshoot/home.png">
+<img src="./html-e-css_2/alura-blog/img/screenshoot/home-page.png">
+<img src="./html-e-css_4/images/screenshoots/desktop_1.png">
+
+Descubra mais sobre cada projeto navegando pelas pastas dos arquivos.
+
 ## 🙏🏽 Agradecimentos
 
 Agradeço ao **iFood** pela oportunidade de ingressar no programa ONE, eles que patrocinaram mais bolsas na qual eu pude me inscrever e conseguir ser aprovado no programa, agradeço também a **Oracle** e a **Alura** pela oportunidade de fazer parte de um projeto tão grande como esse, quero entregar meu máximo ao projeto, desenvolvendo minhas habilidades e demonstrando a minha capacidade em codar.
