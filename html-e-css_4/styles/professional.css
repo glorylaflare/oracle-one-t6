@@ -1,0 +1,46 @@
+@import url("./main.css");
+
+.apresentacao__conteudo__subtitulo {
+    font-family: var(--fonte-destaque);
+    color: var(--cor-texto-principal);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.apresentacao__conteudo__texto {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 4rem;
+}
+
+.apresentacao__conteudo__div {
+    margin-bottom: 4rem;
+}
+
+.apresentacao__conteudo__experiencias,
+.apresentacao__conteudo__cursos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    line-height: 1.8rem;
+}
+
+li > i {
+    margin-right: .5rem;
+}
+
+li > a {
+    color: var(--cor-texto-destaque);
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .apresentacao__conteudo__div {
+        margin-right: 3rem;
+    }
+}

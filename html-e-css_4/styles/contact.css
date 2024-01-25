@@ -1,0 +1,55 @@
+@import url("./main.css");
+
+.apresentacao__conteudo__contato {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.apresentacao__conteudo__contato input,
+textarea {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 1rem;
+    border-radius: .8rem;
+    font-weight: 400;
+    border: .18rem solid var(--cor-texto-destaque);
+    background-color: transparent;
+    color: var(--cor-texto-destaque);
+    resize: none;
+}
+
+textarea {
+    height: 25vh;
+}
+
+.apresentacao__conteudo__contato button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.3rem;
+    padding: 1rem;
+    border-radius: .8rem;
+    font-weight: 600;
+    border: .18rem solid var(--cor-texto-destaque);
+    background-color: transparent;
+    color: var(--cor-texto-principal);
+    cursor: pointer;
+}
+
+.apresentacao__conteudo__contato i {
+    color: var(--cor-texto-destaque);
+}
+
+.apresentacao__conteudo__contato button:hover {
+    background: var(--cor-hover);
+}
+
+@media only screen and (min-width: 768px) {
+    .apresentacao__conteudo__contato {
+        width: 40%;
+        margin-right: 3rem;
+    }
+}

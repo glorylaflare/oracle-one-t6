@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@200;300;400&display=swap');
+
+:root {
+    --cor-fundo: #1B2430;
+    --cor-hover: #51557E;
+    --cor-texto-principal: #816797;
+    --cor-texto-destaque: #D6D5A8;
+
+    --fonte-destaque: 'Krona One', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
+}
+
+/* Header */
+.cabecalho__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 3rem 0;
+    font-weight: 600;
+}
+
+.cabecalho__menu__link {
+    text-decoration: none;
+    color: var(--cor-texto-destaque);
+    position: relative;
+}
+
+.cabecalho__menu__link:hover {
+    color: var(--cor-texto-principal);
+}
+
+.cabecalho__menu__link:hover::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 1.3rem;
+    left: 0;
+    animation: sublinhado .4s ease-in-out;
+}
+
+/* Base */
+.apresentacao {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+.apresentacao__conteudo {
+    margin: 0 2rem;
+}
+
+.apresentacao__imagem {
+    width: 70%;
+    margin: 1rem 0 3rem 0;
+}
+
+/* Footer */
+.rodape {
+    background: var(--cor-texto-destaque);
+    width: 100%;
+    padding: 1.2rem;
+    text-align: center;
+    color: var(--cor-fundo);
+    font-weight: 600;
+}
+
+/* Keyframes */
+@keyframes sublinhado {
+    from {
+        width: 0%;
+        border-bottom: .2rem solid var(--cor-texto-principal);
+    }
+
+    to {
+        width: 100%;
+        border-bottom: .2rem solid var(--cor-texto-principal);
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .cabecalho, 
+    .apresentacao {
+        margin: 5% 20%;
+    }
+
+    .cabecalho__menu {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1.5rem;
+        margin: 3rem 0;
+        font-size: 1.3rem;
+    }
+
+    .cabecalho__menu__link:hover::after {
+        top: 1.7rem;
+    }
+
+    .apresentacao {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        margin-bottom: 15rem;
+        gap: 3rem;
+    }
+
+    .apresentacao__conteudo {
+        margin: 0;
+    }
+
+    .apresentacao__imagem {
+        width: 40%;
+        margin: 0;
+    }
+}
