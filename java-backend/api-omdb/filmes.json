@@ -1,0 +1,17 @@
+[
+  {
+    "Nome": "Matrix",
+    "AnoDeLancamento": 1993,
+    "Duracao": 60
+  },
+  {
+    "Nome": "The Godfather",
+    "AnoDeLancamento": 1972,
+    "Duracao": 17
+  },
+  {
+    "Nome": "The Shining",
+    "AnoDeLancamento": 1980,
+    "Duracao": 14
+  }
+]
