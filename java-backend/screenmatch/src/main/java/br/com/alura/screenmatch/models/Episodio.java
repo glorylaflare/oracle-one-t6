@@ -1,14 +1,29 @@
 package br.com.alura.screenmatch.models;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.ManyToAny;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
+@Entity
+@Table(name = "episodios")
+@Getter @Setter @NoArgsConstructor
 public class Episodio {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private int temporada;
     private String titulo;
     private int numeroEpisodio;
     private double avaliacao;
     private LocalDate data;
+    @ManyToOne
+    private Serie serie;
 
     public Episodio(Integer numeroTemporada, DadosEpisodio dadosEpisodio) {
         this.temporada = numeroTemporada;
@@ -24,46 +39,6 @@ public class Episodio {
         } catch (DateTimeParseException d) {
             this.data = null;
         }
-    }
-
-    public int getTemporada() {
-        return temporada;
-    }
-
-    public void setTemporada(int temporada) {
-        this.temporada = temporada;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public int getNumeroEpisodio() {
-        return numeroEpisodio;
-    }
-
-    public void setNumeroEpisodio(int numeroEpisodio) {
-        this.numeroEpisodio = numeroEpisodio;
-    }
-
-    public double getAvaliacao() {
-        return avaliacao;
-    }
-
-    public void setAvaliacao(double avaliacao) {
-        this.avaliacao = avaliacao;
-    }
-
-    public LocalDate getData() {
-        return data;
-    }
-
-    public void setData(LocalDate data) {
-        this.data = data;
     }
 
     @Override
