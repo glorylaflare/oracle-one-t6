@@ -1,10 +1,9 @@
 package br.com.alura.screenmatch.main;
 
-import br.com.alura.screenmatch.models.*;
-import br.com.alura.screenmatch.repositories.SerieRepository;
-import br.com.alura.screenmatch.services.ConsumoApiService;
-import br.com.alura.screenmatch.services.ConverteDadosService;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.alura.screenmatch.model.*;
+import br.com.alura.screenmatch.repository.SerieRepository;
+import br.com.alura.screenmatch.service.ConsumoApiService;
+import br.com.alura.screenmatch.service.ConverteDadosService;
 
 import java.util.*;
 import java.util.stream.Collectors;

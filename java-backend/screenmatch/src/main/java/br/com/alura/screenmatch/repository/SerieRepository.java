@@ -1,14 +1,16 @@
-package br.com.alura.screenmatch.repositories;
+package br.com.alura.screenmatch.repository;
 
-import br.com.alura.screenmatch.models.Categoria;
-import br.com.alura.screenmatch.models.Episodio;
-import br.com.alura.screenmatch.models.Serie;
+import br.com.alura.screenmatch.model.Categoria;
+import br.com.alura.screenmatch.model.Episodio;
+import br.com.alura.screenmatch.model.Serie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public interface SerieRepository extends JpaRepository<Serie, Long> {
 
     Optional<Serie> findByTituloContainingIgnoreCase(String nomeSerie);
@@ -32,4 +34,12 @@ public interface SerieRepository extends JpaRepository<Serie, Long> {
 
     @Query("SELECT e FROM Serie s JOIN s.episodios e WHERE s = :serie AND YEAR(e.data) >= :anoLancamento")
     List<Episodio> episodiosPorSerieEAno(Serie serie, int anoLancamento);
+
+    List<Serie> findTop5ByOrderByEpisodiosDataDesc();
+
+    @Query("SELECT s FROM Serie s JOIN s.episodios e GROUP BY s ORDER BY MAX(e.data) DESC LIMIT 5")
+    List<Serie> lancamentoMaisRecentes();
+
+    @Query("SELECT e FROM Serie s JOIN s.episodios e WHERE s.id = :id AND e.temporada = :num")
+    List<Episodio> obterEpisodiosPorTemporada(Long id, Integer num);
 }

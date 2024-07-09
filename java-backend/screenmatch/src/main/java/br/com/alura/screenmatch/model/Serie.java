@@ -1,6 +1,6 @@
-package br.com.alura.screenmatch.models;
+package br.com.alura.screenmatch.model;
 
-import br.com.alura.screenmatch.services.translate.ConsultaMyMemoryService;
+import br.com.alura.screenmatch.service.translate.ConsultaMyMemoryService;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package br.com.alura.screenmatch.models;
+package br.com.alura.screenmatch.model;
 
 public enum Categoria {
     ACAO("Action", "Ação"),

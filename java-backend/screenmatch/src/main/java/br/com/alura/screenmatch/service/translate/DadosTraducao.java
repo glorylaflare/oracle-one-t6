@@ -1,4 +1,4 @@
-package br.com.alura.screenmatch.services.translate;
+package br.com.alura.screenmatch.service.translate;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

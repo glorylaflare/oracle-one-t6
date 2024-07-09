@@ -1,10 +1,9 @@
-package br.com.alura.screenmatch.models;
+package br.com.alura.screenmatch.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.ManyToAny;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
