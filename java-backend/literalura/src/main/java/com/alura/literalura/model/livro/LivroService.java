@@ -5,6 +5,7 @@ import com.alura.literalura.model.autor.Autor;
 import com.alura.literalura.model.autor.AutorRepository;
 import com.alura.literalura.service.ConsumoApi;
 import com.alura.literalura.service.ConverteDados;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -56,6 +57,7 @@ public class LivroService {
         livros.stream().sorted(Comparator.comparing(Livro::getId)).forEach(System.out::println);
     }
 
+    @Transactional
     public void listarAutoresRegistrados() {
         List<Autor> autores = autorRepository.findAll();
         autores.stream().sorted(Comparator.comparing(Autor::getId)).forEach(System.out::println);

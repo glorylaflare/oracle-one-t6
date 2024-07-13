@@ -37,12 +37,15 @@ public class Main {
 
             switch (opcao) {
                 case 1:
+                    //Precisa verificar se o autor já existe no banco de dados.
                     livroService.buscarLivroPorTitulo();
                     break;
                 case 2:
+                    //OK
                     livroService.listarLivrosRegistrados();
                     break;
                 case 3:
+                    //OK
                     livroService.listarAutoresRegistrados();
                     break;
                 case 4:
