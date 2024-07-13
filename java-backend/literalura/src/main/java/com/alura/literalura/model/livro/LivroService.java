@@ -34,21 +34,24 @@ public class LivroService {
     @Transactional
     public void buscarLivroPorTitulo() {
         DadosLivro dadosLivro = getDadosLivro();
+
+        if (dadosLivro == null || dadosLivro.titulo() == null || dadosLivro.autor() == null || dadosLivro.autor().isEmpty()) {
+            System.out.println("Livro não encontrado na API. Verifique o título ou tente novamente.");
+            return;
+        }
+
         System.out.println(dadosLivro);
-        assert dadosLivro != null;
         Livro livro = new Livro(dadosLivro);
 
-        if(dadosLivro.autor() != null && !dadosLivro.autor().isEmpty()) {
-            var nomeAutor = dadosLivro.autor().get(0);
-            Optional<Autor> autorExistente = autorRepository.findByNome(nomeAutor.nome());
+        var nomeAutor = dadosLivro.autor().get(0);
+        Optional<Autor> autorExistente = autorRepository.findByNome(nomeAutor.nome());
 
-            if(autorExistente.isPresent()) {
-                livro.setAutor(autorExistente.get());
-            } else {
-                Autor novoAutor = new Autor(nomeAutor);
-                autorRepository.save(novoAutor);
-                livro.setAutor(novoAutor);
-            }
+        if(autorExistente.isPresent()) {
+            livro.setAutor(autorExistente.get());
+        } else {
+            Autor novoAutor = new Autor(nomeAutor);
+            autorRepository.save(novoAutor);
+            livro.setAutor(novoAutor);
         }
 
         livroRepository.save(livro);
@@ -126,7 +129,7 @@ public class LivroService {
         List<Livro> livros = livroRepository.findByIdioma(idiomaEnum);
 
         if (livros.isEmpty()) {
-            System.out.println("Nenhum autor encontrado para o idioma selecionado.");
+            System.out.println("Não existem livros nesse idioma no banco de dados.");
         } else {
             livros.stream()
                     .sorted(Comparator.comparing(Livro::getId))
@@ -134,8 +137,3 @@ public class LivroService {
         }
     }
 }
-
-/*
-Alguns bugs encontrados:
-- Quando nenhum livro é encontrado
- */
