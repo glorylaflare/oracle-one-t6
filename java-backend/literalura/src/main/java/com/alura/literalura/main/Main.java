@@ -49,10 +49,10 @@ public class Main {
                     livroService.listarAutoresRegistrados();
                     break;
                 case 4:
-                    listarAutoresVivosPorAno();
+                    livroService.listarAutoresVivosPorAno();
                     break;
                 case 5:
-                    listarLivrosPorIdioma();
+                    livroService.listarLivrosPorIdioma();
                     break;
                 case 0:
                     System.out.println("Saindo...");

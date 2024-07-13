@@ -1,6 +1,7 @@
 package com.alura.literalura.model.livro;
 
 import com.alura.literalura.model.DadosResults;
+import com.alura.literalura.model.Idioma;
 import com.alura.literalura.model.autor.Autor;
 import com.alura.literalura.model.autor.AutorRepository;
 import com.alura.literalura.model.autor.DadosAutor;
@@ -39,17 +40,14 @@ public class LivroService {
 
         if(dadosLivro.autor() != null && !dadosLivro.autor().isEmpty()) {
             var nomeAutor = dadosLivro.autor().get(0);
-            //System.out.println("Buscando autor com nome: " + nomeAutor);
             Optional<Autor> autorExistente = autorRepository.findByNome(nomeAutor.nome());
 
             if(autorExistente.isPresent()) {
                 livro.setAutor(autorExistente.get());
-                //System.out.println("### Autor já existe!");
             } else {
                 Autor novoAutor = new Autor(nomeAutor);
                 autorRepository.save(novoAutor);
                 livro.setAutor(novoAutor);
-                //System.out.println("### Autor novo criado no banco de dados!");
             }
         }
 
@@ -79,6 +77,65 @@ public class LivroService {
     @Transactional
     public void listarAutoresRegistrados() {
         List<Autor> autores = autorRepository.findAll();
-        autores.stream().sorted(Comparator.comparing(Autor::getId)).forEach(System.out::println);
+        autores.stream()
+                .sorted(Comparator.comparing(Autor::getId))
+                .forEach(System.out::println);
+    }
+
+    @Transactional
+    public void listarAutoresVivosPorAno() {
+        System.out.println("Insira o ano que deseja pesquisar:");
+        var ano = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("\n");
+
+        List<Autor> autores = autorRepository.findByAnoNascimentoLessThanAndAnoFalecimentoGreaterThan(ano, ano);
+
+        if (autores.isEmpty()) {
+            System.out.println("Nenhum autor encontrado para o ano " + ano + ".");
+        } else {
+            autores.stream()
+                    .sorted(Comparator.comparing(Autor::getId))
+                    .forEach(System.out::println);
+        }
+    }
+
+    public void listarLivrosPorIdioma() {
+        System.out.println("""
+                Insira o idioma para realizar a busca:
+                es - espanhol
+                en - inglês
+                fr - francês
+                pt - português
+                """);
+        var idioma = scanner.nextLine().trim();
+
+        if (idioma.isEmpty()) {
+            System.out.println("Por favor, insira um idioma válido.");
+            return;
+        }
+
+        Idioma idiomaEnum;
+        try {
+            idiomaEnum = Idioma.valueOf(idioma.toLowerCase());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Idioma inválido. Por favor, insira um idioma correto.");
+            return;
+        }
+
+        List<Livro> livros = livroRepository.findByIdioma(idiomaEnum);
+
+        if (livros.isEmpty()) {
+            System.out.println("Nenhum autor encontrado para o idioma selecionado.");
+        } else {
+            livros.stream()
+                    .sorted(Comparator.comparing(Livro::getId))
+                    .forEach(System.out::println);
+        }
     }
 }
+
+/*
+Alguns bugs encontrados:
+- Quando nenhum livro é encontrado
+ */
