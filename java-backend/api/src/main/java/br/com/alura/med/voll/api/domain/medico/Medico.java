@@ -1,6 +1,6 @@
-package br.com.alura.med.voll.api.medico;
+package br.com.alura.med.voll.api.domain.medico;
 
-import br.com.alura.med.voll.api.endereco.Endereco;
+import br.com.alura.med.voll.api.domain.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,7 +23,6 @@ public class Medico {
     private Especialidade especialidade;
     @Embedded
     private Endereco endereco;
-
     private Boolean ativo;
 
     public Medico(DadosCadastroMedico dadosCadastroMedico) {
