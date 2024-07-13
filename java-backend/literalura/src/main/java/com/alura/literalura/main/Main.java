@@ -19,7 +19,7 @@ public class Main {
 
         while(opcao != 0) {
             var menu = """
-                        ------------------
+                        -----------------
                         Escolha o número de sua opção:
                         
                         1 - Buscar livro pelo título
@@ -29,7 +29,7 @@ public class Main {
                         5 - Listar livros em um determinado idioma
                                         
                         0 - Sair
-                        ------------------""";
+                        -----------------""";
 
             System.out.println(menu);
             opcao = scanner.nextInt();
@@ -43,7 +43,7 @@ public class Main {
                     livroService.listarLivrosRegistrados();
                     break;
                 case 3:
-                    listarAutoresRegistrados();
+                    livroService.listarAutoresRegistrados();
                     break;
                 case 4:
                     listarAutoresVivosPorAno();

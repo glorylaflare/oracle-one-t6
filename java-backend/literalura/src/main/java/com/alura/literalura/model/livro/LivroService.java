@@ -1,6 +1,8 @@
 package com.alura.literalura.model.livro;
 
 import com.alura.literalura.model.DadosResults;
+import com.alura.literalura.model.autor.Autor;
+import com.alura.literalura.model.autor.AutorRepository;
 import com.alura.literalura.service.ConsumoApi;
 import com.alura.literalura.service.ConverteDados;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +19,13 @@ public class LivroService {
     private final ConsumoApi consumoApi = new ConsumoApi();
     private final ConverteDados converteDados = new ConverteDados();
 
-    private LivroRepository livroRepository;
-    private List<Livro> livros = new ArrayList<>();
+    private final LivroRepository livroRepository;
+    private final AutorRepository autorRepository;
 
     @Autowired
-    public LivroService(LivroRepository livroRepository) {
+    public LivroService(LivroRepository livroRepository, AutorRepository autorRepository) {
         this.livroRepository = livroRepository;
+        this.autorRepository = autorRepository;
     }
 
     public void buscarLivroPorTitulo() {
@@ -49,7 +52,12 @@ public class LivroService {
     }
 
     public void listarLivrosRegistrados() {
-        livros = livroRepository.findAll();
+        List<Livro> livros = livroRepository.findAll();
         livros.stream().sorted(Comparator.comparing(Livro::getId)).forEach(System.out::println);
+    }
+
+    public void listarAutoresRegistrados() {
+        List<Autor> autores = autorRepository.findAll();
+        autores.stream().sorted(Comparator.comparing(Autor::getId)).forEach(System.out::println);
     }
 }

@@ -2,6 +2,7 @@ package com.alura.literalura.model.livro;
 
 import com.alura.literalura.model.Idioma;
 import com.alura.literalura.model.autor.Autor;
+import com.alura.literalura.model.autor.DadosAutor;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Table(name = "livros")
 @Entity(name = "Livro")
@@ -37,12 +39,13 @@ public class Livro {
 
     @Override
     public String toString() {
-        return "Livro{" +
-                "id=" + id +
-                ", titulo='" + titulo + '\'' +
-                ", autor=" + autor +
-                ", idioma=" + idioma +
-                ", numeroDownloads=" + numeroDownloads +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("----- LIVRO -----\n");
+        sb.append("Título: ").append(titulo).append("\n");
+        sb.append("Autor: ").append(autor.getNome()).append("\n");
+        sb.append("Idioma: ").append(idioma.name()).append("\n");
+        sb.append("Número de downloads: ").append(numeroDownloads).append("\n");
+        sb.append("-----------------\n");
+        return sb.toString();
     }
 }

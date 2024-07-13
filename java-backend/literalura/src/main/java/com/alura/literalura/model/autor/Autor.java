@@ -27,11 +27,10 @@ public class Autor {
 
     @Override
     public String toString() {
-        return "Autor{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", anoNascimento=" + anoNascimento +
-                ", anoFalecimento=" + anoFalecimento +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Autor: ").append(nome).append("\n");
+        sb.append("Ano de nascimento: ").append(anoNascimento).append("\n");
+        sb.append("Ano de falecimento: ").append(anoFalecimento).append("\n");
+        return sb.toString();
     }
 }
