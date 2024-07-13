@@ -1,5 +1,6 @@
 package br.com.alura.med.voll.api.infra.exception;
 
+import br.com.alura.med.voll.api.domain.ValidacaoException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,11 @@ public class TratadorDeErros {
         return ResponseEntity.badRequest().body(errors.stream()
                 .map(DadosErroValidacao::new)
                 .toList());
+    }
+
+    @ExceptionHandler(ValidacaoException.class)
+    public ResponseEntity tratarErroRegraDeNegocio(ValidacaoException exception) {
+        return ResponseEntity.badRequest().body(exception.getMessage());
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
