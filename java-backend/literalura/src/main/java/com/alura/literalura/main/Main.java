@@ -10,6 +10,7 @@ public class Main {
 
         while(opcao != 0) {
             var menu = """
+                        ------------------
                         Escolha o número de sua opção:
                         
                         1 - Buscar livro pelo título
@@ -18,7 +19,8 @@ public class Main {
                         4 - Listar autores vivos em um determinado ano
                         5 - Listar livros em um determinado idioma
                                         
-                        0 - Sair""";
+                        0 - Sair
+                        ------------------""";
 
             System.out.println(menu);
             opcao = scanner.nextInt();
@@ -28,20 +30,18 @@ public class Main {
                 case 1:
                     buscarLivroPorTitulo();
                     break;
-                /*case 2:
-                    acao();
+                case 2:
+                    listarLivrosRegistrados();
                     break;
                 case 3:
-                    acao();
+                    listarAutoresRegistrados();
                     break;
                 case 4:
-                    acao();
+                    listarAutoresVivosPorAno();
                     break;
                 case 5:
-                    acao();
+                    listarLivrosPorIdioma();
                     break;
-
-                 */
                 case 0:
                     System.out.println("Saindo...");
                     break;
@@ -51,7 +51,23 @@ public class Main {
         }
     }
 
+    private void listarLivrosPorIdioma() {
+        System.out.println("Opção: 5");
+    }
+
+    private void listarAutoresVivosPorAno() {
+        System.out.println("Opção: 4");
+    }
+
+    private void listarAutoresRegistrados() {
+        System.out.println("Opção: 3");
+    }
+
+    private void listarLivrosRegistrados() {
+        System.out.println("Opção: 2");
+    }
+
     private void buscarLivroPorTitulo() {
-        
+        System.out.println("Opção: 1");
     }
 }
