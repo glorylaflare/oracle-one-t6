@@ -1,5 +1,6 @@
 package com.alura.literalura.model;
 
+import com.alura.literalura.model.livro.DadosLivro;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
