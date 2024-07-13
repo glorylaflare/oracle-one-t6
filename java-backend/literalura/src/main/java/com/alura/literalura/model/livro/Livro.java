@@ -30,9 +30,6 @@ public class Livro {
 
     public Livro(DadosLivro dadosLivro) {
         this.titulo = dadosLivro.titulo();
-        if(dadosLivro.autor() != null && !dadosLivro.autor().isEmpty()) {
-            this.autor = new Autor(dadosLivro.autor().get(0));
-        }
         this.idioma = Idioma.valueOf(dadosLivro.idioma().get(0));
         this.numeroDownloads = dadosLivro.numeroDownloads();
     }

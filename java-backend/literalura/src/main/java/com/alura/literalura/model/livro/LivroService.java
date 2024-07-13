@@ -3,15 +3,16 @@ package com.alura.literalura.model.livro;
 import com.alura.literalura.model.DadosResults;
 import com.alura.literalura.model.autor.Autor;
 import com.alura.literalura.model.autor.AutorRepository;
+import com.alura.literalura.model.autor.DadosAutor;
 import com.alura.literalura.service.ConsumoApi;
 import com.alura.literalura.service.ConverteDados;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 @Service
@@ -29,11 +30,29 @@ public class LivroService {
         this.autorRepository = autorRepository;
     }
 
+    @Transactional
     public void buscarLivroPorTitulo() {
         DadosLivro dadosLivro = getDadosLivro();
         System.out.println(dadosLivro);
         assert dadosLivro != null;
         Livro livro = new Livro(dadosLivro);
+
+        if(dadosLivro.autor() != null && !dadosLivro.autor().isEmpty()) {
+            var nomeAutor = dadosLivro.autor().get(0);
+            //System.out.println("Buscando autor com nome: " + nomeAutor);
+            Optional<Autor> autorExistente = autorRepository.findByNome(nomeAutor.nome());
+
+            if(autorExistente.isPresent()) {
+                livro.setAutor(autorExistente.get());
+                //System.out.println("### Autor já existe!");
+            } else {
+                Autor novoAutor = new Autor(nomeAutor);
+                autorRepository.save(novoAutor);
+                livro.setAutor(novoAutor);
+                //System.out.println("### Autor novo criado no banco de dados!");
+            }
+        }
+
         livroRepository.save(livro);
         System.out.println("Livro adicionado com sucesso ao banco de dados!\n");
     }

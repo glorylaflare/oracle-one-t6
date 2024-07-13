@@ -24,7 +24,7 @@ public class Autor {
     private Integer anoNascimento;
     private Integer anoFalecimento;
     @OneToMany(mappedBy = "autor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Livro> livros;
+    private List<Livro> livros = new ArrayList<>();
 
     public Autor(DadosAutor dadosAutor) {
         this.nome = dadosAutor.nome();
@@ -38,13 +38,7 @@ public class Autor {
         sb.append("Autor: ").append(nome).append("\n");
         sb.append("Ano de nascimento: ").append(anoNascimento).append("\n");
         sb.append("Ano de falecimento: ").append(anoFalecimento).append("\n");
-        sb.append("Livros: ");
-        if (livros != null && !livros.isEmpty()) {
-            sb.append(livros.stream().map(Livro::getTitulo).collect(Collectors.joining(", ")));
-        } else {
-            sb.append("N/A");
-        }
-        sb.append("\n");
+        sb.append("Livros: ").append(livros.stream().map(Livro::getTitulo).collect(Collectors.toList())).append("\n");
         return sb.toString();
     }
 }
