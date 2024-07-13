@@ -1,9 +1,19 @@
 package com.alura.literalura.main;
 
+import com.alura.literalura.model.DadosLivro;
+import com.alura.literalura.model.DadosResults;
+import com.alura.literalura.service.ConsumoApi;
+import com.alura.literalura.service.ConverteDados;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
     private final Scanner scanner = new Scanner(System.in);
+    private final ConsumoApi consumoApi = new ConsumoApi();
+    private final ConverteDados converteDados = new ConverteDados();
 
     public void exibirMenu() {
         var opcao = -1;
@@ -68,6 +78,21 @@ public class Main {
     }
 
     private void buscarLivroPorTitulo() {
-        System.out.println("Opção: 1");
+        DadosLivro dadosLivro = getDadosLivro();
+        System.out.println(dadosLivro);
+    }
+
+    private DadosLivro getDadosLivro() {
+        System.out.println("Digite o título do livro que você deseja buscar:");
+        var tituloDoLivro = scanner.nextLine();
+        var json = consumoApi.enviarRequisicao("https://gutendex.com/books/?search=" + tituloDoLivro.replace(" ", "+"));
+
+        DadosResults dadosResults = converteDados.obterDados(json, DadosResults.class);
+        if(dadosResults != null && dadosResults.livros() != null && !dadosResults.livros().isEmpty()) {
+            return dadosResults.livros().get(0);
+        } else {
+            System.err.println("Nenhum livro encontrado.");
+            return null;
+        }
     }
 }
